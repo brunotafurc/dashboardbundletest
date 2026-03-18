@@ -1,0 +1,6 @@
+resources:
+  dashboards:
+    btafur_22_09:
+      display_name: "btafur_22_09"
+      warehouse_id: 4b9b953939869799
+      file_path: ../src/btafur_22_09.lvdash.json

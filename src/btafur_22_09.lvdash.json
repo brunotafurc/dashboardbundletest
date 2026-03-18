@@ -1,0 +1,149 @@
+{
+  "datasets": [
+    {
+      "name": "c6a078ac",
+      "displayName": "orders_daily",
+      "queryLines": [
+        "SELECT * FROM btafur_catalog.bruno_tafur.orders_daily"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "c59b567c",
+      "displayName": "Page1",
+      "layout": [
+        {
+          "widget": {
+            "name": "9ac51fd1",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Test Dashboard\n",
+                "<p>&nbsp;</p>\n",
+                "\n",
+                "Description"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "876c2eef",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "c6a078ac",
+                  "fields": [
+                    {
+                      "name": "daily(order_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `order_date`)"
+                    },
+                    {
+                      "name": "sum(number_of_orders)",
+                      "expression": "SUM(`number_of_orders`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "label": {
+                  "show": true
+                },
+                "x": {
+                  "displayName": "order_date",
+                  "fieldName": "daily(order_date)",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "displayName": "Sum of number_of_orders",
+                  "fieldName": "sum(number_of_orders)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Orders by Date"
+              },
+              "version": 3,
+              "widgetType": "bar"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "4d1c211b",
+            "queries": [
+              {
+                "name": "dashboards/01f0979f55fa155ea74a27bd159ce32b/datasets/01f0979fb67f12bcb56db862c44245ed_order_date",
+                "query": {
+                  "datasetName": "c6a078ac",
+                  "fields": [
+                    {
+                      "name": "order_date",
+                      "expression": "`order_date`"
+                    },
+                    {
+                      "name": "order_date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "fields": [
+                  {
+                    "displayName": "order_date",
+                    "fieldName": "order_date",
+                    "queryName": "dashboards/01f0979f55fa155ea74a27bd159ce32b/datasets/01f0979fb67f12bcb56db862c44245ed_order_date"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Date"
+              },
+              "version": 2,
+              "widgetType": "filter-date-picker"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
