@@ -1,0 +1,7 @@
+resources:
+  dashboards:
+    testdashboard:
+      display_name: testdashboard
+      file_path: ../src/testdashboard.lvdash.json
+      warehouse_id: 4b9b953939869799
+      dataset_catalog: main

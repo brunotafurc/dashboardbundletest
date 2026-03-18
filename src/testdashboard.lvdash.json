@@ -1,0 +1,206 @@
+{
+  "datasets": [
+    {
+      "name": "75b9b0b3",
+      "displayName": "orders_raw",
+      "queryLines": [
+        "SELECT * FROM btafur_catalog.bruno_tafur.orders_raw"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "4e1b90c8",
+      "displayName": "test",
+      "layout": [
+        {
+          "widget": {
+            "name": "b9d0bd55",
+            "queries": [
+              {
+                "name": "dashboards/01f1226f9f9615a3adddd29e66cec804/datasets/01f1226faacf15e6abebed570b8f91e8_order_number",
+                "query": {
+                  "datasetName": "75b9b0b3",
+                  "fields": [
+                    {
+                      "name": "order_number",
+                      "expression": "`order_number`"
+                    },
+                    {
+                      "name": "order_number_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "order_number",
+                    "queryName": "dashboards/01f1226f9f9615a3adddd29e66cec804/datasets/01f1226faacf15e6abebed570b8f91e8_order_number"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              },
+              "version": 2,
+              "widgetType": "filter-single-select"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "d7ba3147",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "75b9b0b3",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "value": {
+                  "fieldName": "count(*)"
+                }
+              },
+              "version": 2,
+              "widgetType": "counter"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "b8654af9",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "75b9b0b3",
+                  "fields": [
+                    {
+                      "name": "customer_name",
+                      "expression": "`customer_name`"
+                    },
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "x": {
+                  "fieldName": "customer_name",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "count(*)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "version": 3,
+              "widgetType": "bar"
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 1,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "43ba2407",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "75b9b0b3",
+                  "fields": [
+                    {
+                      "name": "customer_name",
+                      "expression": "`customer_name`"
+                    },
+                    {
+                      "name": "order_date",
+                      "expression": "`order_date`"
+                    },
+                    {
+                      "name": "order_number",
+                      "expression": "`order_number`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "customer_name"
+                  },
+                  {
+                    "fieldName": "order_date"
+                  },
+                  {
+                    "fieldName": "order_number"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 10,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
