@@ -12,7 +12,6 @@ include:
 
 targets:
   dev:
-    mode: development
     default: true
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
