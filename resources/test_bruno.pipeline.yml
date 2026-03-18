@@ -1,0 +1,11 @@
+resources:
+  pipelines:
+    test_bruno:
+      name: test_bruno
+      libraries:
+        - glob:
+            include: ../src/test_bruno/transformations/**
+      serverless: true
+      catalog: btafur_catalog
+      schema: btafur_demo
+      root_path: ../src/test_bruno

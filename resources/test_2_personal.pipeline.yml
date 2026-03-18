@@ -1,0 +1,11 @@
+resources:
+  pipelines:
+    test_2_personal:
+      name: test_2_personal
+      libraries:
+        - glob:
+            include: ../src/test_2_personal/transformations/**
+      serverless: true
+      catalog: btafur_catalog
+      schema: ${workspace.current_user.short_name}
+      root_path: ../src/test_2_personal
